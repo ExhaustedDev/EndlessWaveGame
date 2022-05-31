@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Health.tscn" type="PackedScene" id=1]
+[ext_resource path="res://RobotEnemy.gd" type="Script" id=2]
+[ext_resource path="res://RunSheet.png" type="Texture" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 8.0
+height = 12.0
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 3 )
+region = Rect2( 104.708, 68.7395, 19.121, 28.8553 )
+
+[node name="RobotEnemy" type="Area2D"]
+script = ExtResource( 2 )
+
+[node name="Health" parent="." instance=ExtResource( 1 )]
+max_health = 10
+current_health = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="Sprite" parent="."]
+texture = SubResource( 2 )
